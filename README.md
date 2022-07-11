@@ -39,3 +39,8 @@ The json files are ready to be plugged into the '**Force-Directed Graph**' at Ob
 **Step 9: Edit the filename on Observable and view the graph** 
 
 Edit the filename at the online Observable link at line: "SocialNetwork = FileAttachment("filename.json").json()", for example FileAttachment("SocialNetwork20220303.json"). Hit play to view the graph.
+
+
+--
+
+Figma design board: https://www.figma.com/proto/uJhwBBpo6kkk0aCJmvxOff/IEEE-VAST-Challenge-2022
