@@ -2,6 +2,7 @@
 
 ### This repository contains data files and python codes for data pre-processing for analyzing *Social Network* and *Activity Logs* data from the IEEE VAST challenge 2022 dataset: https://vast-challenge.github.io/2022/.
 
+
 Below are the steps to create json files for using as an input for plotting '**Force-Directed Graph**' at Observable <https://observablehq.com/d/4deea9e48e5f9da4>:
 
 **Step 1: Download the original file**
