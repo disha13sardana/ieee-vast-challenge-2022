@@ -1,28 +1,168 @@
-# IEEE VAST Challenge 2022
+# IEEE VAST Challenge 2022 - Social Network Analysis
 
-### This repository contains data files and Python codes for data pre-processing for analyzing *Social Network* and *Activity Logs* data from the IEEE VAST challenge 2022 dataset: https://vast-challenge.github.io/2022/.
+A data preprocessing pipeline for analyzing Social Network and Activity Logs data from the IEEE VAST Challenge 2022 dataset, designed to create interactive force-directed graph visualizations.
 
+## 📊 Overview
 
-Below are the steps to create JSON files for use as an input for plotting '**Force-Directed Graph**' at Observable <https://observablehq.com/d/4deea9e48e5f9da4>:
+This project processes social network data from the [IEEE VAST Challenge 2022](https://vast-challenge.github.io/2022/) and prepares it for visualization using Observable's Force-Directed Graph. The pipeline transforms raw CSV data into JSON files with nodes and links formatted for graph visualization.
 
-**🧪 Step 1: Download the original file** - Download the original *'SocialNetwork.csv'* file from the link: https://vast-challenge.github.io/2022/. It should be found in the folder "VAST-Challenge-2022/Datasets/Journals".
+## 🎯 Features
 
-**🧪 Step 2: Create files for a specific *Day*** - Create an empty folder named "SplitFiles*Day*" (example, SplitFiles01) at location "/Analysis/SocialNetwork/SplitFiles_Day/2022", for the year 2022. Run script 'SplitCsvFiles_day.py' to create SocialNetwork files for a particular day and time, based on months.
+- **Day-wise data splitting**: Break down social network data by specific days and months
+- **Flexible node attributes**: Support for various node characteristics (currentMode, etc.)
+- **JSON generation**: Automated conversion from CSV to visualization-ready JSON format
+- **Observable integration**: Direct compatibility with Observable notebooks
 
-**🧪 Step 3: Convert the CSV files to the links format** - Create an empty folder named "links" inside the "SplitFiles*Day*" folder. Run script *'CsvToLinks_Month.py'*.
+## 🚀 Quick Start
 
-**🧪 Step 4: Convert the links files to the JSON format** - Create an empty folder named "json_links" inside the  "SplitFiles*Day*" folder. Run script *'CsvToJson_Month.py'*.
+### Prerequisites
 
-**🧪 Step 5: Choose variableOfInterest representing the color of the nodes and create node files** - Create an empty folder named "day*Day*" (example, day01) at location "/Analysis/SocialNetwork/Nodes/currentMode/2022", for year 2022 and variableOfInterest: currentMode. Create an empty folder named "nodes" inside the "day*Day*" folder. Run script *'currentModetoCsv_nodes.py'*.
+- Python 3.x
+- Required Python libraries - No external pip installs needed beyond standard data science stack
+- Access to the IEEE VAST Challenge 2022 dataset
 
-**🧪 Step 6: Convert the node files to the JSON format** - Create an empty folder named "json_nodes" inside the "day*Day*" folder. Run script *'CsvToJson_Month.py'*.
+### Installation
 
-**🧪 Step 7: Combine nodes and links into one JSON file** - Create an empty folder named "*Day*" (example, 01) at location "/Analysis/SocialNetwork/Files for Observable/currentMode/Day", for variableOfInterest: currentMode. Run script *'concatenateNodesLinks.py'*.
+1. Clone this repository:
+```bash
+git clone https://github.com/disha13sardana/ieee-vast-challenge-2022.git
+cd ieee-vast-challenge-2022
+```
 
-**🧪 Step 8: Upload the JSON files to the Observable link** - The JSON files are ready to be plugged into the '**Force-Directed Graph**' at Observable <https://observablehq.com/d/4deea9e48e5f9da4>. Upload the JSON files from the location "/Analysis/SocialNetwork/Files for Observable" to the online Observable link.
+2. Download the original dataset:
+   - Visit [IEEE VAST Challenge 2022](https://vast-challenge.github.io/2022/)
+   - Download `SocialNetwork.csv` from `VAST-Challenge-2022/Datasets/Journals`
 
-**🧪 Step 9: Edit the filename on Observable and view the graph** - Edit the filename at the online Observable link at line: "SocialNetwork = FileAttachment("filename.json").json()", for example, FileAttachment("SocialNetwork20220303.json"). Hit play to view the graph.
+## 📖 Usage Guide
 
---
+### Step 1: Download Original Data
+Download `SocialNetwork.csv` from the [IEEE VAST Challenge 2022 dataset](https://vast-challenge.github.io/2022/) located in `VAST-Challenge-2022/Datasets/Journals`.
 
-💡Figma design board: https://www.figma.com/proto/uJhwBBpo6kkk0aCJmvxOff/IEEE-VAST-Challenge-2022
+### Step 2: Split Data by Day
+Create day-specific files organized by month:
+
+```bash
+# Create directory structure
+mkdir -p Analysis/SocialNetwork/SplitFiles_Day/2022
+
+# Run the splitting script
+python SplitCsvFiles_day.py
+```
+
+This creates files for each specific day and time based on months.
+
+### Step 3: Generate Links Format
+Convert CSV files to links format:
+
+```bash
+# Create links directory
+mkdir -p Analysis/SocialNetwork/SplitFiles_Day/links
+
+# Run conversion
+python CsvToLinks_Month.py
+```
+
+### Step 4: Convert Links to JSON
+Transform links files into JSON format:
+
+```bash
+# Create JSON links directory
+mkdir -p Analysis/SocialNetwork/SplitFiles_Day/json_links
+
+# Run JSON conversion
+python CsvToJson_Month.py
+```
+
+### Step 5: Create Node Files
+Generate node files with your chosen attribute (e.g., `currentMode`):
+
+```bash
+# Create directory for node data
+mkdir -p Analysis/SocialNetwork/Nodes/currentMode/2022/day01/nodes
+
+# Generate node CSV files
+python currentModetoCsv_nodes.py
+```
+
+### Step 6: Convert Nodes to JSON
+Transform node CSV files to JSON:
+
+```bash
+# Create JSON nodes directory
+mkdir -p Analysis/SocialNetwork/Nodes/currentMode/2022/day01/json_nodes
+
+# Run conversion
+python CsvToJson_Month.py
+```
+
+### Step 7: Combine Nodes and Links
+Merge nodes and links into unified JSON files:
+
+```bash
+# Create output directory
+mkdir -p "Analysis/SocialNetwork/Files for Observable/currentMode/Day/01"
+
+# Concatenate data
+python concatenateNodesLinks.py
+```
+
+### Step 8: Visualize on Observable
+Upload your generated JSON files to the [Force-Directed Graph on Observable](https://observablehq.com/d/4deea9e48e5f9da4).
+
+### Step 9: View Your Graph
+In Observable, update the file reference:
+
+```javascript
+SocialNetwork = FileAttachment("SocialNetwork20220303.json").json()
+```
+
+Replace `"SocialNetwork20220303.json"` with your filename and click play to render the visualization.
+
+## 📁 Project Structure
+
+```
+ieee-vast-challenge-2022/
+├── Analysis/
+│   └── SocialNetwork/
+│       ├── SplitFiles_Day/
+│       │   └── 2022/
+│       ├── Nodes/
+│       │   └── currentMode/
+│       │       └── 2022/
+│       └── Files for Observable/
+├── Figma design board/
+├── SplitCsvFiles_day.py
+├── CsvToLinks_Month.py
+├── CsvToJson_Month.py
+├── currentModetoCsv_nodes.py
+└── concatenateNodesLinks.py
+```
+
+## 🎨 Design Resources
+
+View the project design board: [Figma Design Board](https://www.figma.com/proto/uJhwBBpo6kkk0aCJmvxOff/IEEE-VAST-Challenge-2022)
+
+## 🔗 Resources
+
+- **Dataset**: [IEEE VAST Challenge 2022](https://vast-challenge.github.io/2022/)
+- **Visualization**: [Force-Directed Graph on Observable](https://observablehq.com/d/4deea9e48e5f9da4)
+- **Design Board**: [Figma Project](https://www.figma.com/proto/uJhwBBpo6kkk0aCJmvxOff/IEEE-VAST-Challenge-2022)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/disha13sardana/ieee-vast-challenge-2022/issues).
+
+## 📝 License
+
+This project is part of the IEEE VAST Challenge 2022. Please refer to the [IEEE VAST Challenge](https://vast-challenge.github.io/2022/) for data usage terms.
+
+## 👤 Author
+
+**Disha Sardana**
+- GitHub: [@disha13sardana](https://github.com/disha13sardana)
+
+## 🙏 Acknowledgments
+
+- IEEE VAST Challenge organizers for providing the dataset
+- Observable community for the force-directed graph visualization template
+
