@@ -138,7 +138,7 @@ ieee-vast-challenge-2022/
 └── concatenateNodesLinks.py
 ```
 
-## 🎨 Design Resources
+## ✏️ Design Resources
 
 View the project design board: [Figma Design Board](https://www.figma.com/proto/uJhwBBpo6kkk0aCJmvxOff/IEEE-VAST-Challenge-2022)
 
