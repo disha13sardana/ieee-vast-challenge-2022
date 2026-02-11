@@ -2,11 +2,11 @@
 
 A data preprocessing pipeline for analyzing Social Network and Activity Logs data from the IEEE VAST Challenge 2022 dataset, designed to create interactive force-directed graph visualizations.
 
-## 📊 Overview
+## 🎯 Overview
 
 This project processes social network data from the [IEEE VAST Challenge 2022](https://vast-challenge.github.io/2022/) and prepares it for visualization using Observable's Force-Directed Graph. The pipeline transforms raw CSV data into JSON files with nodes and links formatted for graph visualization.
 
-## 🎯 Features
+## ✨ Features
 
 - **Day-wise data splitting**: Break down social network data by specific days and months
 - **Flexible node attributes**: Support for various node characteristics (currentMode, etc.)
@@ -138,30 +138,26 @@ ieee-vast-challenge-2022/
 └── concatenateNodesLinks.py
 ```
 
-## ✏️ Design Resources
-
-View the project design board: [Figma Design Board](https://www.figma.com/proto/uJhwBBpo6kkk0aCJmvxOff/IEEE-VAST-Challenge-2022)
-
 ## 🔗 Resources
 
 - **Dataset**: [IEEE VAST Challenge 2022](https://vast-challenge.github.io/2022/)
 - **Visualization**: [Force-Directed Graph on Observable](https://observablehq.com/d/4deea9e48e5f9da4)
-- **Design Board**: [Figma Project](https://www.figma.com/proto/uJhwBBpo6kkk0aCJmvxOff/IEEE-VAST-Challenge-2022)
+- **Project Design Board**: [Figma Project](https://www.figma.com/proto/uJhwBBpo6kkk0aCJmvxOff/IEEE-VAST-Challenge-2022)
 
-## 🤝 Contributing
+## Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/disha13sardana/ieee-vast-challenge-2022/issues).
 
-## 📝 License
+## License
 
 This project is part of the IEEE VAST Challenge 2022. Please refer to the [IEEE VAST Challenge](https://vast-challenge.github.io/2022/) for data usage terms.
 
-## 👤 Author
+## Author
 
 **Disha Sardana**
 - GitHub: [@disha13sardana](https://github.com/disha13sardana)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - IEEE VAST Challenge organizers for providing the dataset
 - Observable community for the force-directed graph visualization template
